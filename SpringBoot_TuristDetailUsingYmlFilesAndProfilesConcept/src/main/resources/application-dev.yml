@@ -1,0 +1,9 @@
+# data Configuration
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:///ravidb
+    username: root
+    password: Ravi@123
+# Activate specific type of data source
+    type: org.apache.commons.dbcp2.BasicDataSource

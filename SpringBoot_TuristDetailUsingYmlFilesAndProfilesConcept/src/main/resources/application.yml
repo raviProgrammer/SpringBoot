@@ -1,0 +1,4 @@
+# Activate the profiles
+spring:
+  profiles:
+    active: test

@@ -1,0 +1,44 @@
+# Activate the profiles
+spring:
+  profiles:
+    active: test
+---
+# data Configuration
+spring:
+  profiles: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:///ravidb
+    username: root
+    password: Ravi@123
+# Activate specific type of data source
+    type: org.apache.commons.dbcp2.BasicDataSource
+---
+# data Configuration
+spring:
+  profiles: prod
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@localhost:1521:xe
+    username: system
+    password: ravi123
+---
+# data Configuration
+spring:
+  profiles: test
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:///ravidb
+    username: root
+    password: Ravi@123
+# Activate specific type of data source 
+    type: org.apache.tomcat.jdbc.pool.DataSource
+---
+# data Configuration
+spring:
+  profiles: uat
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@localhost:1521:xe
+    username: system
+    password: ravi123
