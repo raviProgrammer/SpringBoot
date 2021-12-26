@@ -13,12 +13,32 @@ public class CrudRepositoryTestRunner implements CommandLineRunner {
 	private IMovieService service;
 	@Override
 	public void run(String... args) throws Exception {
-		Movie movie=new Movie();
-		movie.setMname("Venom 2");
-		movie.setYear(2021);
-		movie.setRating(7.0f);
+		  Movie movie=new Movie(); 
+		  movie.setMname("Pupsha");
+		  movie.setYear(2021);
+		  movie.setRating(8.0f);
+		  try {
+			  System.out.println(service.registorMovie(movie));
+			  } 
+		 catch(Exception e) {
+			  e.printStackTrace();
+		}
 		try {
-			System.out.println(service.registorMovie(movie));
+			System.out.println("How many number of Row Table Data: "+service.fetchMovieCount());
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			System.out.println("Check Id for Exiting or Not: "+service.checkMovieByID(1));
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			System.out.println("Show All data Table: "+service.fetchAllDataShow());
 		}
 		catch(Exception e) {
 			e.printStackTrace();

@@ -1,6 +1,7 @@
 package com.ravi.service;
 
 import java.util.Arrays;
+import java.util.Iterator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,5 +22,25 @@ public class MovieService implements IMovieService {
 		System.out.println("After Saving Table Data is: "+movie);
 		return "Movie data is Registored with Id value is: "+movie.getMid();
 	}
+
+	@Override
+	public long fetchMovieCount() {
+		return movieRepo.count();
+	}
+
+	@Override
+	public boolean checkMovieByID(Integer id) {
+		
+		return movieRepo.existsById(id);
+	}
+
+	@Override
+	public Iterable<Movie> fetchAllDataShow() {
+		return movieRepo.findAll();
+	}
+
+	
+	
+	
 
 }
