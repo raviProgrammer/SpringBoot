@@ -1,6 +1,7 @@
 package com.ravi.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,14 @@ public class MovieMgmtServiceImpl implements MovieMgmtService {
 		
 	}
 
-	
-
+	@Override
+	public String deleteMovieById(Integer id) {
+		Optional<Movie> opt=movieRepo.findById(id);
+		if(opt.isPresent()) {
+			movieRepo.deleteById(id);
+			return id+" is deleted successfully";
+		}
+		else
+			return id+ " is not found";
+	}
 }

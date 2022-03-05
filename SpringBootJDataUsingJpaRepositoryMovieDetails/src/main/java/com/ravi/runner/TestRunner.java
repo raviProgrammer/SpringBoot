@@ -25,6 +25,13 @@ public class TestRunner implements CommandLineRunner {
 			e.printStackTrace();
 		}
 		
+		try {
+			System.out.println(service.deleteMovieById(123));
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		
 	}
 
 	
