@@ -37,6 +37,9 @@ public class FinderMethodTestRunner implements CommandLineRunner {
 		turistRepo.findByNameEqualsAndCountryEquals("nancy", "USA").forEach(System.out::println);
 		turistRepo.findByNameEqualsOrCountryEquals("nancy", "USA").forEach(System.out::println);
 		turistRepo.findByContactEqualsOrNameInAndCountryEquals(900l, List.of("nancy","lisa"), "USA").forEach(System.out::println);
+		
+		// NotLike("n%") means all show records in not starting n alphabet
+		turistRepo.findByNameNotLikeAndCountryInOrderByNameAsc("n%", List.of("USA","japan")).forEach(System.out::println);
 
 	}
 

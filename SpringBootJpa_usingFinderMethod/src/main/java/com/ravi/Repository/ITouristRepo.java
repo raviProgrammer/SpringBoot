@@ -41,4 +41,15 @@ public interface ITouristRepo extends JpaRepository<Turist, Integer> {
 	// select id,name,email,country,contact,desg_state,desg_country,desg_city,desg_date from Turist where contact=? or name in (? , ?) and country=?
 	public Iterable<Turist> findByContactEqualsOrNameInAndCountryEquals(Long number, List<String> name, String country);
 
+	// select id,name,email,country,contact,desg_state,desg_country,desg_city,desg_date from Turist where name not like? escape? and country in(?,?) order by name asc
+	public Iterable<Turist> findByNameNotLikeAndCountryInOrderByNameAsc(String name, List<String> country);
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
